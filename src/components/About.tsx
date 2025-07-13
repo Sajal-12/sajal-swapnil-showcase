@@ -1,54 +1,76 @@
 
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { ExternalLink, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export const About = () => {
   return (
     <section id="about" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-white text-center mb-16">
+        <h2 className="text-3xl font-bold text-center mb-16 text-foreground">
           About Me
         </h2>
         
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <p className="text-lg text-gray-300 leading-relaxed">
-              I'm a passionate Full Stack Developer with expertise in modern web technologies. 
-              I enjoy creating scalable applications and solving complex problems with elegant solutions.
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              I'm a passionate Blockchain and Full-Stack Developer with a B.E. in Computer Science 
+              from Chandigarh University (2020–2024). I specialize in Web3 technologies, React 
+              development, and creating innovative solutions.
             </p>
             
-            <p className="text-lg text-gray-300 leading-relaxed">
-              Currently pursuing my degree while continuously learning and implementing 
-              cutting-edge technologies. I have experience with both frontend and backend 
-              development, with a strong focus on user experience and performance optimization.
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Currently focused on blockchain development, smart contracts, and building 
+              decentralized applications. I'm also active in the open-source community with 
+              contributions to 70+ GitHub repositories.
             </p>
             
             <div className="flex flex-wrap gap-2">
-              <Badge className="bg-purple-600 hover:bg-purple-700 text-white">React</Badge>
-              <Badge className="bg-blue-600 hover:bg-blue-700 text-white">Node.js</Badge>
-              <Badge className="bg-green-600 hover:bg-green-700 text-white">MongoDB</Badge>
-              <Badge className="bg-yellow-600 hover:bg-yellow-700 text-white">JavaScript</Badge>
-              <Badge className="bg-red-600 hover:bg-red-700 text-white">Python</Badge>
+              <Badge variant="secondary">Blockchain Developer</Badge>
+              <Badge variant="secondary">Full-Stack Developer</Badge>
+              <Badge variant="secondary">Open Source Contributor</Badge>
+              <Badge variant="secondary">Technical Writer</Badge>
+            </div>
+            
+            <div className="flex flex-wrap gap-3">
+              <Button asChild variant="outline" size="sm">
+                <a href="https://medium.com/@sajalvictorious83" target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="mr-2 h-4 w-4" />
+                  Medium
+                </a>
+              </Button>
+              
+              <Button asChild variant="outline" size="sm">
+                <a href="mailto:sajalvictorious83@gmail.com">
+                  <Mail className="mr-2 h-4 w-4" />
+                  Email
+                </a>
+              </Button>
             </div>
           </div>
           
-          <Card className="p-8 bg-slate-800/50 backdrop-blur-sm border-slate-700 hover:border-purple-500 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
+          <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:scale-105">
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <span className="text-gray-400">Location</span>
-                <span className="text-white">India</span>
+                <span className="text-muted-foreground font-medium">Education</span>
+                <span className="text-foreground">B.E. Computer Science</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-400">Experience</span>
-                <span className="text-white">2+ Years</span>
+                <span className="text-muted-foreground font-medium">University</span>
+                <span className="text-foreground">Chandigarh University</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-400">Education</span>
-                <span className="text-white">Computer Science</span>
+                <span className="text-muted-foreground font-medium">Year</span>
+                <span className="text-foreground">2020–2024</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-400">Specialization</span>
-                <span className="text-white">Full Stack Development</span>
+                <span className="text-muted-foreground font-medium">Location</span>
+                <span className="text-foreground">Bihar, India</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-muted-foreground font-medium">Role</span>
+                <span className="text-foreground">Technical Team Lead</span>
               </div>
             </div>
           </Card>

@@ -16,19 +16,20 @@ export const Navigation = () => {
 
   const navItems = [
     { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
     { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
+    { name: "Certifications", href: "#certifications" },
     { name: "Contact", href: "#contact" },
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      scrolled ? "bg-slate-900/95 backdrop-blur-sm shadow-lg" : "bg-transparent"
+    <nav className={`fixed top-0 w-full z-40 transition-all duration-300 ${
+      scrolled ? "bg-background/80 backdrop-blur-md shadow-sm border-b" : "bg-transparent"
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold text-white">
+          <div className="text-xl font-bold text-foreground">
             Sajal Swapnil
           </div>
           
@@ -38,10 +39,10 @@ export const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-300 hover:text-purple-400 transition-colors duration-300 relative group"
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 relative group text-sm font-medium"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
           </div>
@@ -50,7 +51,7 @@ export const Navigation = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white transition-colors duration-300"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -60,12 +61,12 @@ export const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-slate-800/95 backdrop-blur-sm rounded-lg">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-background/95 backdrop-blur-md rounded-lg border">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block px-3 py-2 text-gray-300 hover:text-purple-400 transition-colors duration-300"
+                  className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}

@@ -1,60 +1,67 @@
 
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-800/20 to-pink-800/20 animate-pulse"></div>
-      
-      <div className="text-center z-10 max-w-4xl mx-auto px-4">
-        <div className="mb-8 relative">
-          <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-purple-500 to-pink-500 p-1 animate-pulse">
-            <div className="w-full h-full rounded-full bg-slate-800 flex items-center justify-center">
-              <span className="text-4xl font-bold text-white">SS</span>
+    <section className="min-h-screen flex items-center justify-center px-4 pt-16">
+      <div className="text-center max-w-4xl mx-auto space-y-8">
+        <div className="space-y-4">
+          <div className="inline-block p-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse">
+            <div className="w-24 h-24 bg-background rounded-full flex items-center justify-center">
+              <span className="text-2xl font-bold text-primary">SS</span>
             </div>
           </div>
+          
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground">
+            Sajal Swapnil
+          </h1>
+          
+          <p className="text-xl md:text-2xl text-primary font-medium">
+            Blockchain & Full‑Stack Developer
+          </p>
+          
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            B.E. (Computer Science) | Passionate about Web3, Java, React, and building intuitive UI experiences.
+          </p>
+          
+          <p className="text-muted-foreground">
+            📍 Hajipur, Bihar, India
+          </p>
         </div>
         
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
-          Sajal Swapnil
-        </h1>
-        
-        <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in">
-          Full Stack Developer & Tech Enthusiast
-        </p>
-        
-        <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto animate-fade-in">
-          Passionate about creating innovative web solutions with modern technologies. 
-          Experienced in React, Node.js, and cloud platforms.
-        </p>
-        
-        <div className="flex justify-center space-x-6 mb-12">
+        <div className="flex flex-wrap justify-center gap-4">
           <Button
             asChild
-            className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 py-3 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+          >
+            <a href="https://v0-resume-in-aarush-style.vercel.app" target="_blank" rel="noopener noreferrer">
+              <FileText className="mr-2 h-4 w-4" />
+              Resume
+            </a>
+          </Button>
+          
+          <Button
+            asChild
+            variant="outline"
+            className="rounded-full px-6 py-3 transition-all duration-300 hover:scale-105 hover:shadow-lg"
           >
             <a href="https://github.com/Sajal-12" target="_blank" rel="noopener noreferrer">
-              <Github className="mr-2 h-5 w-5" />
+              <Github className="mr-2 h-4 w-4" />
               GitHub
             </a>
           </Button>
           
           <Button
             asChild
-            className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            variant="outline"
+            className="rounded-full px-6 py-3 transition-all duration-300 hover:scale-105 hover:shadow-lg"
           >
-            <a href="https://www.linkedin.com/in/sajal-swapnil-a93a741ba/" target="_blank" rel="noopener noreferrer">
-              <Linkedin className="mr-2 h-5 w-5" />
+            <a href="https://www.linkedin.com/in/sajal-swapnil-a93a741ba" target="_blank" rel="noopener noreferrer">
+              <Linkedin className="mr-2 h-4 w-4" />
               LinkedIn
             </a>
           </Button>
-        </div>
-        
-        <div className="animate-bounce">
-          <a href="#about" className="text-gray-400 hover:text-white transition-colors duration-300">
-            <ArrowDown className="mx-auto h-8 w-8" />
-          </a>
         </div>
       </div>
     </section>

@@ -1,88 +1,92 @@
 
 import { Card } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
-import { Code, Database, Globe, Smartphone } from "lucide-react";
+import { 
+  Code, 
+  Database, 
+  Globe, 
+  Smartphone, 
+  Wrench, 
+  Blocks,
+  Brain,
+  Cloud
+} from "lucide-react";
 
 export const Skills = () => {
   const skillCategories = [
     {
-      title: "Frontend Development",
-      icon: <Globe className="h-8 w-8" />,
-      skills: [
-        { name: "React", level: 90 },
-        { name: "JavaScript", level: 85 },
-        { name: "TypeScript", level: 80 },
-        { name: "HTML/CSS", level: 95 },
-        { name: "Tailwind CSS", level: 85 }
-      ]
+      title: "Programming Languages",
+      icon: <Code className="h-6 w-6" />,
+      skills: ["Java", "JavaScript", "TypeScript", "SQL", "Solidity"]
     },
     {
-      title: "Backend Development",
-      icon: <Database className="h-8 w-8" />,
-      skills: [
-        { name: "Node.js", level: 85 },
-        { name: "Express.js", level: 80 },
-        { name: "Python", level: 75 },
-        { name: "MongoDB", level: 80 },
-        { name: "PostgreSQL", level: 70 }
-      ]
+      title: "Frontend Frameworks",
+      icon: <Globe className="h-6 w-6" />,
+      skills: ["React.js", "Next.js", "HTML", "CSS", "Tailwind CSS"]
     },
     {
-      title: "Tools & Technologies",
-      icon: <Code className="h-8 w-8" />,
-      skills: [
-        { name: "Git", level: 90 },
-        { name: "Docker", level: 70 },
-        { name: "AWS", level: 65 },
-        { name: "Firebase", level: 80 },
-        { name: "REST APIs", level: 85 }
-      ]
+      title: "Backend & Database",
+      icon: <Database className="h-6 w-6" />,
+      skills: ["Node.js", "Express.js", "MongoDB", "PostgreSQL", "RESTful APIs"]
+    },
+    {
+      title: "Blockchain & Web3",
+      icon: <Blocks className="h-6 w-6" />,
+      skills: ["Solidity", "Smart Contracts", "DApps", "Web3.js", "Ethereum"]
     },
     {
       title: "Mobile Development",
-      icon: <Smartphone className="h-8 w-8" />,
-      skills: [
-        { name: "React Native", level: 75 },
-        { name: "Flutter", level: 60 },
-        { name: "Progressive Web Apps", level: 80 }
-      ]
+      icon: <Smartphone className="h-6 w-6" />,
+      skills: ["Android", "Java", "Kotlin", "React Native"]
+    },
+    {
+      title: "Tools & Platforms",
+      icon: <Wrench className="h-6 w-6" />,
+      skills: ["Git", "GitHub", "VS Code", "Postman", "Google Cloud"]
+    },
+    {
+      title: "AI & Analytics",
+      icon: <Brain className="h-6 w-6" />,
+      skills: ["ChatGPT", "Gemini", "Prompt Engineering", "Google Analytics"]
+    },
+    {
+      title: "Cloud & DevOps",
+      icon: <Cloud className="h-6 w-6" />,
+      skills: ["Google Cloud", "Digital Marketing", "SEO", "Performance Optimization"]
     }
   ];
 
   return (
-    <section id="skills" className="py-20 px-4 bg-slate-900/50">
+    <section id="skills" className="py-20 px-4 bg-muted/30">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-white text-center mb-16">
+        <h2 className="text-3xl font-bold text-center mb-16 text-foreground">
           Skills & Technologies
         </h2>
         
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillCategories.map((category, index) => (
             <Card 
               key={index}
-              className="p-8 bg-slate-800/50 backdrop-blur-sm border-slate-700 hover:border-purple-500 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20 group"
+              className="p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 hover:bg-card/80 group"
             >
-              <div className="flex items-center mb-6">
-                <div className="p-3 bg-purple-600 rounded-lg mr-4 group-hover:bg-purple-500 transition-colors duration-300 text-white">
-                  {category.icon}
+              <div className="flex items-center mb-4">
+                <div className="p-2 bg-primary/10 rounded-lg mr-3 group-hover:bg-primary/20 transition-colors duration-300">
+                  <div className="text-primary">
+                    {category.icon}
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-white">
+                <h3 className="font-semibold text-foreground text-sm">
                   {category.title}
                 </h3>
               </div>
               
-              <div className="space-y-4">
+              <div className="flex flex-wrap gap-1">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex}>
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-gray-300 font-medium">{skill.name}</span>
-                      <span className="text-purple-400 text-sm">{skill.level}%</span>
-                    </div>
-                    <Progress 
-                      value={skill.level} 
-                      className="h-2 bg-slate-700"
-                    />
-                  </div>
+                  <span 
+                    key={skillIndex}
+                    className="text-xs bg-secondary text-secondary-foreground px-2 py-1 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+                  >
+                    {skill}
+                  </span>
                 ))}
               </div>
             </Card>
