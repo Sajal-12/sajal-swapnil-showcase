@@ -7,34 +7,34 @@ import { Github, ExternalLink, Code } from "lucide-react";
 export const Projects = () => {
   const projects = [
     {
+      title: "YouTube Clone",
+      description: "A full-featured YouTube clone with video streaming capabilities, user authentication, video upload, and responsive design. Built with modern web technologies for optimal performance.",
+      technologies: ["React", "Node.js", "Express", "MongoDB", "JWT", "Cloudinary"],
+      github: "https://github.com/Sajal-12/youtube-clone",
+      live: "#",
+      image: "bg-gradient-to-r from-red-600 to-pink-600"
+    },
+    {
+      title: "Chat Application",
+      description: "Real-time chat application with multiple rooms, user authentication, message history, and emoji support. Features instant messaging with WebSocket integration.",
+      technologies: ["React", "Socket.io", "Node.js", "Express", "MongoDB"],
+      github: "https://github.com/Sajal-12/chat-app",
+      live: "#",
+      image: "bg-gradient-to-r from-blue-600 to-cyan-600"
+    },
+    {
       title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with user authentication, product management, shopping cart, and payment integration.",
-      technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe"],
-      github: "https://github.com/Sajal-12",
+      description: "Complete e-commerce solution with product catalog, shopping cart, payment integration, order management, and admin dashboard for inventory control.",
+      technologies: ["React", "Node.js", "MongoDB", "Stripe", "Redux", "JWT"],
+      github: "https://github.com/Sajal-12/ecommerce-platform",
       live: "#",
-      image: "bg-gradient-to-r from-blue-600 to-purple-600"
+      image: "bg-gradient-to-r from-green-600 to-emerald-600"
     },
     {
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      technologies: ["React", "Firebase", "Material-UI", "Socket.io"],
-      github: "https://github.com/Sajal-12",
-      live: "#",
-      image: "bg-gradient-to-r from-green-600 to-blue-600"
-    },
-    {
-      title: "Social Media Dashboard",
-      description: "A comprehensive dashboard for managing multiple social media accounts with analytics, post scheduling, and engagement tracking.",
-      technologies: ["Vue.js", "Python", "Django", "PostgreSQL"],
-      github: "https://github.com/Sajal-12",
-      live: "#",
-      image: "bg-gradient-to-r from-pink-600 to-red-600"
-    },
-    {
-      title: "Weather Forecast App",
-      description: "A responsive weather application with location-based forecasts, interactive maps, and detailed weather analytics.",
-      technologies: ["React", "OpenWeather API", "Chart.js", "Tailwind"],
-      github: "https://github.com/Sajal-12",
+      title: "Weather App",
+      description: "Responsive weather application with location-based forecasts, detailed weather information, 7-day predictions, and interactive weather maps using OpenWeather API.",
+      technologies: ["React", "OpenWeather API", "Chart.js", "Tailwind CSS", "Geolocation"],
+      github: "https://github.com/Sajal-12/weather-app",
       live: "#",
       image: "bg-gradient-to-r from-cyan-600 to-blue-600"
     }
