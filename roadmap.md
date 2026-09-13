@@ -1,4 +1,5 @@
-- [in_progress] Replace the template portfolio with an engineering-first one-page experience
-- [pending] Add real resume PDF links for software engineering and test engineering; keep DevOps pending
-- [pending] Update metadata, responsive styling, and working external links
-- [pending] Verify build and preview interactions
+- [done] Replace the template portfolio with an engineering-first one-page experience
+- [done] Add role-specific Software Engineering, DevOps, AI/ML, and QA résumé PDFs
+- [done] Update metadata, responsive styling, and working external links
+- [done] Verify build and preview interactions
+- [done] Upgrade the resume section into a four-role sliding showcase with working PDF actions

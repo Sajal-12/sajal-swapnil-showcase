@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowDownRight,
+  ArrowLeft,
+  ArrowRight,
   ArrowUpRight,
   Check,
   ChevronRight,
@@ -20,8 +22,10 @@ import {
   X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import softwareResume from "@/assets/resume-software-engineer.pdf.asset.json";
-import testingResume from "@/assets/resume-software-test-engineer.pdf.asset.json";
+import softwareResume from "@/assets/resume-software-engineer-2026.pdf.asset.json";
+import devopsResume from "@/assets/resume-devops-cloud-engineer.pdf.asset.json";
+import aiResume from "@/assets/resume-ai-ml-engineer.pdf.asset.json";
+import testingResume from "@/assets/resume-software-test-engineer-2026.pdf.asset.json";
 
 const external = { target: "_blank", rel: "noreferrer" } as const;
 
@@ -147,6 +151,7 @@ const resumeOptions = [
   {
     number: "01",
     title: "Software Engineer",
+    shortLabel: "Backend systems",
     focus: "Backend Engineering · Java · Go · APIs · Microservices · System Design · Cloud",
     description: "Backend-focused software engineering with emphasis on scalable APIs, distributed systems, clean architecture and production-oriented development.",
     url: softwareResume.url,
@@ -155,13 +160,25 @@ const resumeOptions = [
   {
     number: "02",
     title: "DevOps & Cloud Engineer",
+    shortLabel: "Infrastructure",
     focus: "DevOps · AWS · Linux · Docker · CI/CD · Infrastructure as Code · Cloud Computing",
     description: "Engineering-focused DevOps and cloud profile centered on automation, infrastructure, deployment reliability and scalable cloud environments.",
-    pending: true,
+    url: devopsResume.url,
+    download: "resume-devops-cloud-engineer.pdf",
   },
   {
     number: "03",
+    title: "AI / ML Engineer",
+    shortLabel: "Applied intelligence",
+    focus: "Python · Machine Learning · Generative AI · Data · Automation · Model Development",
+    description: "AI and machine-learning profile focused on practical model development, data-driven systems and intelligent engineering workflows.",
+    url: aiResume.url,
+    download: "resume-ai-ml-engineer.pdf",
+  },
+  {
+    number: "04",
     title: "Software Test Engineer",
+    shortLabel: "Quality systems",
     focus: "Selenium · WebDriver · Java · TestNG · Python · PyTest · Postman · API Testing",
     description: "Software Test Engineer focused on maintainable UI and API automation, structured regression suites and reliable backend validation.",
     url: testingResume.url,
@@ -180,12 +197,21 @@ const SectionIntro = ({ eyebrow, title, copy }: { eyebrow: string; title: string
 const Index = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const resumeTrackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const moveResumeTrack = (direction: -1 | 1) => {
+    const track = resumeTrackRef.current;
+    if (!track) return;
+    const card = track.querySelector<HTMLElement>(".resume-option");
+    const distance = card ? card.offsetWidth + 16 : track.clientWidth * 0.85;
+    track.scrollBy({ left: direction * distance, behavior: "smooth" });
+  };
 
   return (
     <main className="site-shell">
@@ -329,10 +355,32 @@ const Index = () => {
       </section>
 
       <section className="page-section resume-section tinted-section">
-        <SectionIntro eyebrow="10 — Resume" title="Three focused versions. One engineering foundation." copy="Choose the profile that best matches the problem you are hiring to solve." />
-        <div className="resume-grid">
-          {resumeOptions.map((resume) => <article className={`resume-option ${resume.pending ? "resume-option--pending" : ""}`} key={resume.title}><div className="resume-top"><span className="mono-label">{resume.number}</span>{resume.pending && <span className="pending-label">PDF pending</span>}</div><h3>{resume.title}</h3><p className="resume-focus">{resume.focus}</p><p>{resume.description}</p><div className="resume-actions">{resume.url ? <><Button asChild size="sm"><a href={resume.url} {...external}>View Resume <ExternalLink size={14} /></a></Button><Button asChild size="sm" variant="ghost"><a href={resume.url} download={resume.download}>Download PDF <Download size={14} /></a></Button></> : <Button size="sm" variant="outline" disabled>Awaiting DevOps PDF</Button>}</div></article>)}
+        <div className="resume-heading-row">
+          <SectionIntro eyebrow="10 — Resume Profiles" title="Four roles. One engineering foundation." copy="Choose the profile aligned with the problem you are hiring to solve. Each résumé is independently tailored and ready to view or download." />
+          <div className="resume-controls" aria-label="Résumé slider controls">
+            <Button variant="outline" size="icon" onClick={() => moveResumeTrack(-1)} aria-label="Previous résumé"><ArrowLeft size={16} /></Button>
+            <Button variant="outline" size="icon" onClick={() => moveResumeTrack(1)} aria-label="Next résumé"><ArrowRight size={16} /></Button>
+          </div>
         </div>
+        <div className="resume-track" ref={resumeTrackRef} aria-label="Role-specific résumés" aria-roledescription="carousel">
+          {resumeOptions.map((resume) => (
+            <article className="resume-option" key={resume.title} role="group" aria-roledescription="slide" aria-label={`${resume.number} of 04 — ${resume.title}`}>
+              <div className="resume-card-rail" aria-hidden="true"><span>{resume.number}</span><span>SS / 2026</span></div>
+              <div className="resume-card-body">
+                <div className="resume-top"><span className="mono-label">PROFILE {resume.number}</span><span className="resume-availability">PDF · READY</span></div>
+                <div className="resume-role-mark"><span>{resume.shortLabel}</span></div>
+                <h3>{resume.title}</h3>
+                <p className="resume-focus">{resume.focus}</p>
+                <p className="resume-description">{resume.description}</p>
+                <div className="resume-actions">
+                  <Button asChild size="sm"><a href={resume.url} {...external}>View Resume <ExternalLink size={14} /></a></Button>
+                  <Button asChild size="sm" variant="ghost"><a href={resume.url} download={resume.download}>Download <Download size={14} /></a></Button>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div className="resume-track-meta"><span>Swipe or use arrows to explore</span><span>04 tailored profiles</span></div>
       </section>
 
       <section id="writing" className="page-section activity-section">
