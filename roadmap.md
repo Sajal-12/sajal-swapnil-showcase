@@ -2,3 +2,4 @@
 - [pending] Add real resume PDF links for software engineering and test engineering; keep DevOps pending
 - [pending] Update metadata, responsive styling, and working external links
 - [pending] Verify build and preview interactions
+- [in_progress] Upgrade the resume section into a four-role sliding showcase with working PDF actions
