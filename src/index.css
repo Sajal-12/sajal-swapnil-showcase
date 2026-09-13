@@ -137,6 +137,7 @@
   .skill-row span { @apply font-mono text-[0.68rem] uppercase tracking-[0.12em] text-primary; }
   .skill-row strong { @apply text-sm font-normal leading-6 text-muted-foreground; }
   .resume-heading-row { @apply flex items-end justify-between gap-8; }
+  .resume-section { scroll-margin-top: 4rem; }
   .resume-controls { @apply hidden shrink-0 gap-2 sm:flex; }
   .resume-track { @apply mt-16 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-5; scrollbar-width: none; overscroll-behavior-inline: contain; }
   .resume-track::-webkit-scrollbar { display: none; }

@@ -362,9 +362,9 @@ const Index = () => {
             <Button variant="outline" size="icon" onClick={() => moveResumeTrack(1)} aria-label="Next résumé"><ArrowRight size={16} /></Button>
           </div>
         </div>
-        <div className="resume-track" ref={resumeTrackRef} aria-label="Role-specific résumés">
+        <div className="resume-track" ref={resumeTrackRef} aria-label="Role-specific résumés" aria-roledescription="carousel">
           {resumeOptions.map((resume) => (
-            <article className="resume-option" key={resume.title}>
+            <article className="resume-option" key={resume.title} role="group" aria-roledescription="slide" aria-label={`${resume.number} of 04 — ${resume.title}`}>
               <div className="resume-card-rail" aria-hidden="true"><span>{resume.number}</span><span>SS / 2026</span></div>
               <div className="resume-card-body">
                 <div className="resume-top"><span className="mono-label">PROFILE {resume.number}</span><span className="resume-availability">PDF · READY</span></div>
